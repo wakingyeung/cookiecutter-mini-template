@@ -1,0 +1,10 @@
+{
+    "project_name": "Project Name",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "version": "0.0.1",
+    "description": "",
+    "author_name": "Your Name",
+    "author_email": "you@example.com",
+    "python_version": "3.8",
+    "poetry_source": ["douban", "aliyun", "163", "tsinghua", "official"]
+}

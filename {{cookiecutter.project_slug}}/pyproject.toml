@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.description }}"
+authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.python_version }}"
+
+[tool.poetry.dev-dependencies]
+commitizen = "^2.10.0"
+pre-commit = "^2.9.2"
+{% if cookiecutter.poetry_source == "douban" %}
+[[tool.poetry.source]]
+name = "douban"
+url = "https://pypi.doubanio.com/simple/"
+default = true
+{% elif cookiecutter.poetry_source == "aliyun" %}
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+{% elif cookiecutter.poetry_source == "163" %}
+[[tool.poetry.source]]
+name = "163"
+url = "https://mirrors.163.com/pypi/simple/"
+default = true
+{% elif cookiecutter.poetry_source == "tsinghua" %}
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true
+{% endif %}
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "{{ cookiecutter.version }}"
+tag_format = "$version"
+version_files = [
+  "pyproject.toml:version"
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.messages_control]
+disable = "all"
+enable = "C0202, E0102, E0211, E0213, E1120, E1121, E1123, R0401"
+
+[tool.pylint.format]
+max-line-length = "88"

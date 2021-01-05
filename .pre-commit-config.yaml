@@ -1,24 +1,34 @@
 default_stages: [commit]
 repos:
-  - hooks:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: master
+    hooks:
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: master
+    hooks:
       - id: commitizen
         stages: [commit-msg]
-    repo: https://github.com/commitizen-tools/commitizen
+  - repo: https://github.com/pycqa/isort
     rev: master
-  - hooks:
+    hooks:
       - id: isort
-    repo: https://github.com/pycqa/isort
-    rev: master
-  - hooks:
-      - id: black
-    repo: https://github.com/psf/black
+  - repo: https://github.com/psf/black
     rev: stable
-  - hooks:
+    hooks:
+      - id: black
+  - repo: https://github.com/pycqa/flake8
+    rev: master
+    hooks:
       - id: flake8
         additional_dependencies: [flake8-bugbear]
-    repo: https://github.com/pycqa/flake8
-    rev: master
-  - hooks:
+  - repo: local
+    hooks:
       - id: pylint
-    repo: https://github.com/pycqa/pylint
-    rev: master
+        name: pylint
+        language: system
+        entry: poetry run pylint
+        types: [python]

@@ -10,6 +10,7 @@ python = "^3.8"
 [tool.poetry.dev-dependencies]
 commitizen = "^2.10.0"
 pre-commit = "^2.9.2"
+pylint = "^2.6.0"
 
 [[tool.poetry.source]]
 name = "douban"
@@ -46,9 +47,12 @@ version_files = [
 [tool.isort]
 profile = "black"
 
+# Base on vscode-python's Pylint with minimal set of rules.
+# https://github.com/microsoft/vscode-python/blob/98d22e7e90fe83548544547df2b7ef693c36f103/src/client/linters/pylint.ts#L57
+# https://github.com/janjur/readable-pylint-messages/blob/master/README.md
 [tool.pylint.messages_control]
 disable = "all"
-enable = "C0202, E0102, E0211, E0213, E1120, E1121, E1123, R0401"
+enable = "C0202,E,F,R0401,W0101,W0109,W0301,W0602,W0612,W0614,W0711,W1302,W1401,W1501"
 
 [tool.pylint.format]
 max-line-length = "88"

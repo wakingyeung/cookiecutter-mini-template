@@ -10,6 +10,7 @@ python = "^{{ cookiecutter.python_version }}"
 [tool.poetry.dev-dependencies]
 commitizen = "^2.10.0"
 pre-commit = "^2.9.2"
+pylint = "^2.6.0"
 {% if cookiecutter.poetry_source == "douban" %}
 [[tool.poetry.source]]
 name = "douban"
@@ -48,7 +49,7 @@ profile = "black"
 
 [tool.pylint.messages_control]
 disable = "all"
-enable = "C0202, E0102, E0211, E0213, E1120, E1121, E1123, R0401"
+enable = "C0202,E,F,R0401,W0101,W0109,W0301,W0602,W0612,W0614,W0711,W1302,W1401,W1501"
 
 [tool.pylint.format]
 max-line-length = "88"

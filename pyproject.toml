@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cookiecutter-mini-template"
-version = "0.0.1"
+version = "0.1.0"
 description = ""
 authors = ["Waking <wakingyeung23@gmail.com>"]
 
@@ -32,13 +32,9 @@ name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
 secondary = true
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.0.1"
+version = "0.1.0"
 tag_format = "$version"
 version_files = [
   "pyproject.toml:version"
@@ -56,3 +52,7 @@ enable = "C0202,E,F,R0401,W0101,W0109,W0301,W0602,W0612,W0614,W0711,W1302,W1401,
 
 [tool.pylint.format]
 max-line-length = "88"
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+

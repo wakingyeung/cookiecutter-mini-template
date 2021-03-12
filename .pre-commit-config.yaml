@@ -6,6 +6,7 @@ repos:
       - id: check-merge-conflict
       - id: check-json
       - id: check-toml
+        exclude: ^{{cookiecutter.project_slug}}
       - id: check-yaml
   - repo: https://github.com/commitizen-tools/commitizen
     rev: master

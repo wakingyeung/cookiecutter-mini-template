@@ -8,9 +8,9 @@ authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
 python = "^{{ cookiecutter.python_version }}"
 
 [tool.poetry.dev-dependencies]
-commitizen = "^2.10.0"
-pre-commit = "^2.9.2"
-pylint = "^2.6.0"
+commitizen = "^2.16.0"
+pre-commit = "^2.11.1"
+pylint = "^2.7.2"
 {% if cookiecutter.poetry_source == "douban" %}
 [[tool.poetry.source]]
 name = "douban"
